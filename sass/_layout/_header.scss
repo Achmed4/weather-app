@@ -1,0 +1,496 @@
+/* === Header === */
+
+header {
+    // Top Bar
+    section {
+        background: $headerbg;
+        .container {
+            height: 50px;
+            position: relative;
+            @include flexbox($justify-content: space-between);
+            @media (max-width: 767px) {
+                display: block;
+                padding: $ten 0;
+                height: auto;
+            }
+            > ul li {
+                display: inline-block;
+                padding: $zero $ten;
+                &:not(:last-child) {
+                    border-right: 1px solid $headerlinkcolor;
+                }
+                a {
+                    display: block;
+                    color: $headerlinkcolor;
+                    &:hover {
+                        color: $headerlinkhover;
+                    }
+                }
+                @media (max-width: 767px) {
+                    display: inline-block;
+                    margin-bottom: $ten;
+                    padding: $zero;
+                    border-right: $zero !important;
+                    a {
+                        padding: $zero 10px;
+                    }
+                }
+            }
+            > div {
+                margin-right: $ten;
+                @media (max-width: 767px) {
+                    margin-right: $zero;
+                }
+                > button {
+                    background: $transparent;
+                    border: $zero;
+                    color: $headerlinkcolor;
+                    outline: $zero;
+                    cursor: pointer;
+                    &:first-child {
+                        display: none;
+                        @media (max-width: 767px) {
+                            display: inline-block;
+                        }
+                    }
+                }
+                form {
+                    position: relative;
+                    margin-right: 5px;
+                    display: inline-block;
+                    z-index: 999;
+                    @media (max-width: 767px) {
+                        position: absolute;
+                        bottom: -30px;
+                        left: 0;
+                        width: 100%;
+                        &:hover input {
+                            width: 100%;
+                        }
+                        &.toggle {
+                            display: none;
+                        }
+                    }
+                    button {
+                        color: $headerlinkcolor;
+                        background: $transparent;
+                        border: $zero;
+                        padding: 6px 8px;
+                        outline: $zero;
+                        transform: translateX(-30px);
+                        position: absolute;
+                        cursor: pointer;
+                        @media (max-width: 767px) {
+                            padding: 5px 8px;
+                            position: absolute;
+                            top: 1px;
+                            right: -30px;
+                        }
+                    }
+                    input {
+                        border-radius: 15px;
+                        border: $zero;
+                        outline: $zero;
+                        box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+                        padding: 5px $ten;
+                        height: 30px;
+                        width: 200px;
+                        transition: width 0.3s ease-in-out;
+                        @media (max-width: 767px) {
+                            width: 100%;
+                            border-radius: 0;
+                        }
+                    }
+                }
+                > label {
+                    position:relative;
+                    &::after {
+                        content:'<>';
+                        font:11px "Consolas", monospace;
+                        color:#aaa;
+                        -webkit-transform:rotate(90deg);
+                        -moz-transform:rotate(90deg);
+                        -ms-transform:rotate(90deg);
+                        transform:rotate(90deg);
+                        right:8px; top:2px;
+                        padding:0 0 2px;
+                        border-bottom:1px solid #ddd;
+                        position:absolute;
+                        pointer-events:none;
+                    }
+                    &::before {
+                        content:'';
+                        right:4px;
+                        top:0px;
+                        width:32px;
+                        height:20px;
+                        background:#f8f8f8;
+                        position:absolute;
+                        pointer-events:none;
+                        display:block;
+                    }
+                    select {
+                        width: 49px;
+                        height: 24px;
+                        padding:3px;
+                        margin: 0;
+                        border-radius:4px;
+                        box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+                        background: #f8f8f8;
+                        color:#888;
+                        border:none;
+                        outline:none;
+                        display: inline-block;
+                        -webkit-appearance:none;
+                        -moz-appearance:none;
+                        appearance:none;
+                        cursor:pointer;
+                        // @media screen and (-webkit-min-device-pixel-ratio:0) {
+                        //     select {padding-right:18px}
+                        // }
+                    }
+                }
+            }
+        }
+    }
+
+    // Main Header
+    main {
+        height: 125px;
+        @include flexbox($justify-content: space-between);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        box-shadow: 0px 0 3px 0 rgba(0, 0, 0, 0.19),
+                    0 3px 3px 0 rgba(0, 0, 0, 0.23);
+        figure {
+            a {
+                display: block;
+                width: 90px;
+                margin: 0 auto;
+                transition: all 0.3s ease-in-out;
+                img {
+                    width: 100%;
+                }
+            }
+            @media (max-width: 620px) {
+                & {
+                    margin: 5px;
+                }
+            }
+        }
+        nav {
+            margin-right: 15px;
+            @include flexbox($justify-content: space-between);
+            // Cart
+            > div:first-child {
+                display: inline-block;
+                position: relative;
+                border: 1px solid $textColor;
+                margin-right: 15px;
+                font-size: 20px;
+                border-radius: 3px;
+                &:hover {
+                    border: 1px solid $mainColor;
+                    color: $mainColor;
+                    & div {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+                a {
+                    display: block;
+                    padding: $ten 15px;
+                    color: $textColor;
+                    > span.ui.red.label, span.ui.red.labels .label {
+                        background: $mainColor !important;
+                    }
+                }
+                > div {
+                    position: absolute;
+                    opacity: 0;
+                    visibility: hidden;
+                    min-width: 360px;
+                    min-height: 125px;
+                    background: $white;
+                    padding: $ten;
+                    box-shadow:0 0px 5px 1px rgba(0, 0, 0, 0.1);
+                    top: 54px;
+                    left: -8px;
+                    z-index: 1;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: -14px;
+                        left: 5%;
+                        width: 28px;
+                        height: 28px;
+                        background: $white;
+                        box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.1);
+                        -webkit-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+                    .empty {
+                        font-size: 15px;
+                        text-align: center;
+                        font-style: italic;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                    }
+                    .busy {
+                        li {
+                            @include flexbox($justify-content: space-between);
+                            padding: $ten $zero;
+                            border-bottom: 1px dashed $headerlinkcolor;
+                            .image {
+                                width: 100px;
+                                height: 100px;
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                            > div {
+                                display: inline-block;
+                                text-align: center;
+                                > div {
+                                    &:first-child {
+                                        max-width: 210px;
+                                        a {
+                                            color: $textColor;
+                                        }
+                                    }
+                                    &:nth-child(2) {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                            > button {
+                                width: 25px;
+                                height: 25px;
+                                line-height: 12.5px;
+                                text-align: center;
+                                border-radius: 50%;
+                                border: 2px solid;
+                                background: transparent;
+                                padding: 0;
+                                cursor: pointer;
+                                &:hover i {
+                                    color: $mainColor;
+                                }
+                            }
+                        }
+                        > div {
+                            margin-top: 10px;
+                            span:first-child {
+                                color: $textColor;
+                                font-weight: bold;
+                                margin-right: 3px;
+                            }
+                            span:last-child {
+                                color: $textColor;
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                    @media (max-width: 767px) {
+                        & {
+                            left: -303px;
+                            &::before {
+                                left: 87%;
+                            }
+                        }
+                    }
+                    @media (max-width: 450px) {
+                        & {
+                            display: none;
+                        }
+                    }
+                }
+            }
+            > button {
+                display: none;
+                border: 1px solid $textColor;
+                padding: $ten 15px;
+                color: $textColor;
+                font-size: 20px;
+                background: white;
+                margin-right: 15px;
+                border-radius: 3px;
+                cursor: pointer;
+                outline: $zero;
+                &:hover {
+                    border: 1px solid $mainColor;
+                    color: $mainColor;
+                }
+                @media (max-width: 767px) {
+                    display: inline-block;
+                }
+            }
+            > div:last-child {
+                @media (max-width: 767px) {
+                    height: 100%;
+                    width: 0;
+                    position: fixed;
+                    z-index: 999;
+                    left: 0;
+                    top: 0;
+                    background-color: rgba(0,0,0, 0.9);
+                    overflow-x: hidden;
+                    transition: 0.5s;
+                }
+                .closebtn {
+                    position: absolute;
+                    top: 20px;
+                    right: 45px;
+                    font-size: 40px;
+                    color: $mainColor;
+                    display: none;
+                    cursor: pointer;
+                    @media (max-width: 767px) {
+                        display: block;
+                    }
+                }
+                > ul {
+                    @media (max-width: 767px) {
+                        position: relative;
+                        top: 10%;
+                        width: 100%;
+                        text-align: center;
+                    }
+                    > li {
+                        position: relative;
+                        display: inline-block;
+                        border: 1px solid $transparent;
+                        border-radius: 25px;
+                        &:hover {
+                            border: 1px solid $mainColor;
+                            > a {
+                                color: $mainColor;
+                            }
+                            > div {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                        &.active {
+                            > a {
+                                color: $mainColor;
+                            }
+                            border: 1px solid $mainColor;
+                        }
+                        a {
+                            display: block;
+                            padding: $ten 15px;
+                            color: $textColor;
+                            font-size: 16px;
+                            @media (max-width: 767px) {
+                                color: $white;
+                                font-weight: bold;
+                            }
+                        }
+                        @media (max-width: 767px) {
+                            display: block;
+                            margin: $zero;
+                            padding: 8px;
+                            // height: auto;
+                            border: $zero;
+                            border-radius: $zero;
+                            &:hover {
+                                border: $zero;
+                            }
+                            &.active {
+                                border: $zero;
+                            }
+                        }
+                        // Sub-Menu
+                        div {
+                            @include flexbox($align-items: flex-start);
+                            position: absolute;
+                            top: 40px;
+                            max-width: 400px;
+                            height: auto;
+                            border: 1px solid #e3e2e2;
+                            box-shadow: 0 2px 2px #cccccc;
+                            padding: 15px;
+                            background: $white;
+                            white-space: nowrap;
+                            text-align: left;
+                            opacity: 0;
+                            visibility: hidden;
+                            z-index: 2;
+                            > ul {
+                                h3 {
+                                    color: $textColor;
+                                }
+                                li {
+                                    display: block;
+                                    &:hover {
+                                        > a {
+                                            color: $mainColor;
+                                        }
+                                    }
+                                    &.active {
+                                        > a {
+                                            color: $mainColor;
+                                        }
+                                    }
+                                }
+                                @media (max-width: 767px) {
+                                    margin: 0;
+                                    display: inline-block;
+                                }
+                                @media (max-width: 315px) {
+                                    display: block;
+                                }
+                            }
+                            @media (max-width: 880px) {
+                                top: 40px;
+                            }
+                            @media (max-width: 767px) {
+                                display: block;
+                                max-width: 100%;
+                                position: static;
+                                width: 100%;
+                                height: auto;
+                                text-align: center;
+                                padding: 5px 0;
+                                box-shadow: none;
+                                border: 0;
+                                opacity: 1;
+                                visibility: visible;
+                                background: $transparent;
+                            }
+                        }
+                    }
+                }
+            }
+            @media (max-width: 767px) {
+                margin-right: 0 !important;
+                text-align: center;
+                display: block;
+                > a {
+                    display: inline-block;
+                }
+                > ul {
+                    margin: 10px 0;
+                }
+            }
+        }
+        &.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            z-index: 10;
+            figure {
+                a {
+                    width: 70px;
+                }
+            }
+        }
+    }
+}

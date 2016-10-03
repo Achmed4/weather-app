@@ -1,0 +1,25 @@
+/* === Mixins === */
+
+@mixin flexbox($justify-content: center, $align-items: center) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin mainstyle() {
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background: #C6E5F3;
+        @include flexbox;
+    }
+    ul,li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+}

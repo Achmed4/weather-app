@@ -1,0 +1,114 @@
+/* === Articles === */
+
+section ~ article {
+    padding: 60px 0;
+    section {
+        padding: $ten;
+        height: 370px;
+        margin-bottom: 20px !important;
+        div:first-child {
+            height: 50px;
+            text-align: left;
+            font-size: 14px;
+            a {
+                color: $textColor;
+                margin-right: 5px;
+                &:first-child {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                &:not(:first-child) {
+                    &:hover {
+                        color: $mainColor;
+                    }
+                    @media (max-width: 767px) {
+                        display: none;
+                    }
+                }
+            }
+            span {
+                color: $textColor;
+                margin-right: 5px;
+            }
+        }
+        div:nth-child(2) {
+            height: 192px;
+            img {
+                width: 100%;
+            }
+        }
+        div:last-child {
+            height: 128px;
+            p {
+                // display: -webkit-box;
+                // -webkit-line-clamp: 3;
+                // -webkit-box-orient: vertical;
+                display: block;
+                height: 54px;
+                overflow: hidden;
+                word-wrap: break-word;
+                margin: 5px $zero;
+                color: $textColor;
+                text-align: left;
+            }
+            a {
+                display: inline-block;
+                margin-top: 10px;
+                @include main-button($padding: 5px 35px);
+                &:hover {
+                    background-color: $mainColor;
+                }
+            }
+        }
+    }
+    // Media Queries
+    .container {
+        @media (max-width: 767px) {
+            .span_4_of_12 {
+                width: 100% !important;
+            }
+            .col {
+                margin-left: 0;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+            .span_4_of_12 {
+                width: 49.2%;
+            }
+            .col:nth-child(2n+1) {
+                margin-left: 0;
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .col:nth-child(3n+1) {
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .col:nth-child(3n+1) {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+/* === Media Query === */
+
+@media (max-width: 767px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}

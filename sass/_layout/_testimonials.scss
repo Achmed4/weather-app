@@ -1,0 +1,74 @@
+/* === Testimonials === */
+
+blockquote {
+    padding: 60px 0;
+    color: $textColor;
+    h2 {
+        text-transform: uppercase;
+        font-weight: normal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 21px;
+        margin-bottom: 25px;
+        img:first-child {
+            margin-right: 15px;
+        }
+        img:last-child {
+            margin-left: 15px;
+        }
+    }
+    .carousel3 {
+        .slick-slide {
+            height: 150px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-right: 15px;
+            outline: $zero;
+            div:first-child {
+                width: 90px;
+                margin-right: 10px;
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+            div:last-child {
+                display: inline-block;
+                width: 90%;
+                cite {
+                    font-weight: bold;
+                }
+            }
+        }
+        .slick-dots {
+            width: 80px;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 0;
+            position: relative;
+            bottom: -30px;
+            li {
+                display: inline-block;
+                button {
+                    border: 0;
+                    outline: 0;
+                    border-radius: 50%;
+                    width: 15px;
+                    height: 15px;
+                    border: 1px solid $headerlinkcolor;
+                    background: $headerlinkhover;
+                    display: block;
+                }
+            }
+            .slick-active {
+                button {
+                    background: #FFF;
+                }
+            }
+        }
+    }
+}

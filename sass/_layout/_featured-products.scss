@@ -1,0 +1,178 @@
+/* === Featured & Latest Products === */
+
+figure ~ section {
+    padding: 60px 0;
+    text-align: center;
+    color: $textColor;
+    > div {
+        margin-bottom: 30px;
+        h2 {
+            text-transform: uppercase;
+            font-weight: normal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 21px;
+            margin-bottom: 25px;
+            img:first-child {
+                margin-right: 15px;
+            }
+            img:last-child {
+                margin-left: 15px;
+            }
+        }
+        ul li {
+            display: inline-block;
+            padding: $zero 15px;
+            &:not(:last-child) {
+                border-right: 1px solid $headerlinkcolor;
+            }
+            a {
+                display: block;
+                color: $headerlinkcolor;
+                cursor: pointer;
+                &:hover {
+                    color: $mainColor;
+                }
+            }
+            &.active a {
+                color: $mainColor;
+            }
+            @media (max-width: 767px) {
+                border: 1px solid $headerlinkcolor;
+                width: 45%;
+                margin-right: $ten;
+                margin-bottom: $ten;
+                padding: 0;
+                a {
+                    padding: 10px 15px;
+                }
+            }
+            @media (max-width: 520px) {
+                display: block;
+                margin: 10px auto;
+            }
+        }
+    }
+    .carousel2 {
+        .slick-slide {
+            height: 370px;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #e7e7e7;
+            border-radius: 5px;
+            box-shadow: 1px 0 1px rgba(206, 206, 206, 0.4);
+            margin: 0 5px;
+            position: relative;
+            div:first-child {
+                height: 210px;
+                img {
+                    width: 100%;
+                    transition: transform 0.3s ease-in-out;
+                }
+            }
+            div:last-child {
+                height: 140px;
+                a {
+                    display: block;
+                    padding: 20px 0 !important;
+                    color: $textColor;
+                    opacity: 0.9;
+                }
+                > div {
+                    margin-bottom: 10px;
+                    span {
+                        font-weight: bold;
+                        font-size: 20px;
+                        color: $mainColor;
+                        &.discount {
+                            font-size: 14px;
+                            color: $textColor;
+                            font-style: italic;
+                            text-decoration: line-through;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                button {
+                    @include main-button;
+                }
+            }
+            div.addTo {
+                position: absolute;
+                top: -80px;
+                left: 15px;
+                transition: all 0.3s ease-in-out;
+                a {
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    margin-bottom: 3px;
+                    border-radius: 3px;
+                    color: $white;
+                    background: $textColor;
+                    &:hover {
+                        background: $mainColor;
+                    }
+                }
+            }
+            &:hover {
+                div:first-child {
+                    img {
+                        transform: translate(-50%, -50%) scale(1.2);
+                    }
+                }
+                div:last-child {
+                    a {
+                        color: $mainColor !important;
+                    }
+                    button {
+                        background-color: $mainColor !important;
+                    }
+                }
+                div.addTo {
+                    top: 150px;
+                }
+            }
+        }
+        i.fa.fa-angle-right.slick-arrow,
+        i.fa.fa-angle-left.slick-arrow {
+            font-size: 30px;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            position: absolute;
+            bottom: -60px;
+            cursor: pointer;
+            color: $textColor;
+            border: 1px solid #c8c8c8;
+            border-radius: 3px;
+            opacity: 0.9;
+            z-index: 9;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                background: $textColor;
+                color: $white;
+            }
+        }
+        i.fa.fa-angle-right.slick-arrow {
+            margin-right: -40px;
+            right: 50%;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        i.fa.fa-angle-left.slick-arrow {
+            margin-left: -40px;
+            left: 50%;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .slick-list, .slick-track {
+            height: 100%;
+        }
+    }
+}

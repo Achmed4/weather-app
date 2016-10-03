@@ -1,0 +1,16 @@
+
+.icon-picture:before { content: '\e800'; } /* '' */
+.icon-paper-plane:before { content: '\e801'; } /* '' */
+.icon-location:before { content: '\e803'; } /* '' */
+.icon-sun:before { content: '\e804'; } /* '' */
+.icon-cloud:before { content: '\e805'; } /* '' */
+.icon-rain:before { content: '\e806'; } /* '' */
+.icon-snow:before { content: '\e807'; } /* '' */
+.icon-cloud-flash:before { content: '\e808'; } /* '' */
+.icon-temperatire:before { content: '\e809'; } /* '' */
+.icon-drizzle:before { content: '\e80a'; } /* '' */
+.icon-cloud-sun:before { content: '\e80b'; } /* '' */
+.icon-moon:before { content: '\e80c'; } /* '' */
+.icon-sun-filled:before { content: '\e80d'; } /* '' */
+.icon-wind:before { content: '\e80e'; } /* '' */
+.icon-cloud-wind:before { content: '\e80f'; } /* '' */
