@@ -17,7 +17,7 @@ var weather = function() {
         navigator.geolocation.getCurrentPosition(function(position)     {
             var myRequest = function() {
                 var request = new XMLHttpRequest();
-                request.open('GET', 'api.openweathermap.org/data/2.5/weather?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude);
+                request.open('GET',  'https://api.darksky.net/forecast/cd80205e6d9b5496aca91ffefffa3a83/' + position.coords.latitude + ',' + position.coords.longitude);
                 request.onreadystatechange = function() {
                     if( (request.status === 200) && (request.readyState === 4) ) {
                         console.log(request);
