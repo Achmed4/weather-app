@@ -13,13 +13,6 @@ var weather = function() {
         }
     }();
 
-    var myRequest = function() {
-        var request = new XMLHttpRequest();
-        request.open('GET', 'api.openweathermap.org/data/2.5/weather?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '');
-        request.send();
-        console.log(request);
-    };
-
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position)     {
             var myRequest = function() {
