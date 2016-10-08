@@ -17,7 +17,7 @@ var weather = function() {
         navigator.geolocation.getCurrentPosition(function(position)     {
             var myRequest = function() {
                 var request = new XMLHttpRequest();
-                request.open('GET',  'https://api.darksky.net/forecast/cd80205e6d9b5496aca91ffefffa3a83/' + position.coords.latitude + ',' + position.coords.longitude);
+                request.open('GET',  'https://api.apixu.com/v1/current.json?key=a13aa5f20b72400c8d9235114160710&q=' + position.coords.latitude + ',' + position.coords.longitude);
                 request.onreadystatechange = function() {
                     if( (request.status === 200) && (request.readyState === 4) ) {
                         console.log(request);
