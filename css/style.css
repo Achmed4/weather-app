@@ -88,21 +88,24 @@ main {
       padding: 20px;
       text-align: center; }
       main article section div {
+        height: 50%;
         display: flex;
         justify-content: center;
         align-items: center; }
-        main article section div span {
-          font-size: 5em; }
+        main article section div td {
+          padding-bottom: 5px;
+          font-size: 1.4em; }
         main article section div p {
           margin: 0; }
       main article section time {
-        display: inline;
+        display: inline-block;
         background: rgba(51, 51, 51, 0.41);
         padding: 5px 12px;
         border-radius: 25px;
         text-align: center;
         text-transform: uppercase;
-        font-size: 0.95em; }
+        font-size: 0.95em;
+        margin-top: 10%; }
     main article ul {
       height: 100%;
       width: 65%;
