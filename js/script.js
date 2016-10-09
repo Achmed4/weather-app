@@ -26,8 +26,12 @@ var weather = function() {
                     var hour = response.forecast.simpleforecast.forecastday[0].date.hour;
                     var min = response.forecast.simpleforecast.forecastday[0].date.min;
                     var ampm = response.forecast.simpleforecast.forecastday[0].date.ampm;
-                    var timeElement = document.querySelector('main header section div time');
-                    timeElement.innerHTML = hour + ' : ' + min + ' ' + ampm;
+                    var month = response.forecast.simpleforecast.forecastday[0].date.monthname;
+                    var day = response.forecast.simpleforecast.forecastday[0].date.day;
+                    var topTimeElement = document.querySelector('main header section div time');
+                    var bottomTimeElement = document.querySelector('main article section time');
+                    topTimeElement.innerHTML = hour + ':' + min + ' ' + ampm;
+                    bottomTimeElement.innerHTML = month + ' ' + day;
                 }
             };
             xhr.send();
