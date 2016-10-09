@@ -17,7 +17,7 @@ var weather = function() {
         navigator.geolocation.getCurrentPosition(function(position)     {
             var myRequest = function() {
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET',  'https://api.darksky.net/forecast/cd80205e6d9b5496aca91ffefffa3a83/' + position.coords.latitude + ',' + position.coords.longitude);
+                xhr.open('GET',  'http://api.wunderground.com/api/ddfbc22639b02032/geolookup/q/' + position.coords.latitude + ',' + position.coords.longitude + '.json');
                 xhr.onreadystatechange = function() {
                     if( (xhr.status === 200) && (xhr.readyState === 4) ) {
                         console.log(xhr);
