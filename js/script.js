@@ -17,10 +17,13 @@ var weather = function() {
         navigator.geolocation.getCurrentPosition(function(position)     {
             var myRequest = function() {
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET',  '//api.wunderground.com/api/ddfbc22639b02032/geolookup/q/' + position.coords.latitude + ',' + position.coords.longitude + '.json');
+                xhr.open('GET',  '//api.wunderground.com/api/ddfbc22639b02032/forecast10day/q/' + position.coords.latitude + ',' + position.coords.longitude + '.json');
                 xhr.onreadystatechange = function() {
                     if( (xhr.status === 200) && (xhr.readyState === 4) ) {
-                        console.log(xhr);
+                        var response = JSON.parse(xhr.responseText);
+                        var time = response.forecast.txt_forecast.date;
+                        var timeElement = document.querySelector('main header section div time');
+                        timeElement.innerHTML = time;
                     }
                 };
                 xhr.send();
