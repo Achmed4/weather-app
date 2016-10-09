@@ -53,7 +53,7 @@ var weather = function() {
                 }
                 // request.open('GET',  'https://api.darksky.net/forecast/cd80205e6d9b5496aca91ffefffa3a83/' + position.coords.latitude + ',' + position.coords.longitude);
                 xhr.onreadystatechange = function() {
-                    if( (request.status === 200) && (request.readyState === 4) ) {
+                    if( (xhr.status === 200) && (xhr.readyState === 4) ) {
                         console.log(xhr);
                     }
                 };
