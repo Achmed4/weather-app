@@ -16,7 +16,54 @@ var weather = function() {
 
     //Making sure that your browser has geolocation object
     if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position)     {
+        navigator.geolocation.getCurrentPosition(function(position) {
+
+            tday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+            tmonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+
+            function getClock() {
+                var d = new Date();
+                var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+                var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+                var topTimeElement = document.querySelector('main header section div time');
+                var bottomTimeElement = document.querySelector('main article section time');
+
+                if(nyear<1000) {
+                    nyear+=1900;
+                }
+
+                if(nhour === 0) {
+                    ap=" AM";nhour=12;
+                } else if(nhour<12){
+                    ap=" AM";
+                } else if(nhour === 12) {
+                    ap=" PM";
+                } else if(nhour>12) {
+                    ap=" PM";
+                    nhour-=12;
+                }
+
+                if(nmin<=9) {
+                    nmin="0"+nmin;
+                }
+
+                if(nsec<=9) {
+                    nsec="0"+nsec;
+                }
+
+                topTimeElement.innerHTML = nhour+":"+nmin+":"+nsec+ap+"";
+                bottomTimeElement.innerHTML = ""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear;
+
+            }
+            getClock();
+            setInterval(getClock,1000);
+
+
+            // function GetClock() {
+            //
+            // document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+            // }
+
 
             var xhr = new XMLHttpRequest();
             xhr.open('GET',  '//api.wunderground.com/api/ddfbc22639b02032/forecast10day/q/' + position.coords.latitude + ',' + position.coords.longitude + '.json');
@@ -36,12 +83,13 @@ var weather = function() {
                     var lowTempC = response.forecast.simpleforecast.forecastday[0].low.celsius;
                     var lowTempF = response.forecast.simpleforecast.forecastday[0].low.fahrenheit;
                     //Elements
-                    var topTimeElement = document.querySelector('main header section div time');
-                    var bottomTimeElement = document.querySelector('main article section time');
+
+                    // var topTimeElement = document.querySelector('main header section div time');
+                    // var bottomTimeElement = document.querySelector('main article section time');
                     var highTemp = document.getElementById('highTemp');
                     var lowTemp = document.getElementById('lowTemp');
-                    topTimeElement.innerHTML = currentTime;
-                    bottomTimeElement.innerHTML = month + ' ' + day;
+                    // topTimeElement.innerHTML = currentTime;
+                    // bottomTimeElement.innerHTML = month + ' ' + day;
                     highTemp.innerHTML = highTempC;
                     lowTemp.innerHTML = lowTempC;
 
