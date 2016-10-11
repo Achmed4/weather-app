@@ -118,8 +118,8 @@ var weather = function() {
                         var highTemp = document.getElementById('highTemp');
                         var lowTemp = document.getElementById('lowTemp');
                         var tempUnitEl = document.querySelectorAll('tr td');
-                        highTemp.innerHTML = highTempC;
-                        lowTemp.innerHTML = lowTempC;
+                        highTemp.innerHTML = highTempC + ' <sup>&#x2218;</sup>';
+                        lowTemp.innerHTML = lowTempC + ' <sup>&#x2218;</sup>';
 
                         var toggleTemp = function() {
 
