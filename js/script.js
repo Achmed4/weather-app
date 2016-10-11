@@ -82,6 +82,16 @@ var weather = function() {
         }
     }();
 
+    // var tempUnitEl = document.querySelectorAll('tr td');
+    // var toggleTemp = function() {
+    //
+    //     console.log("Gooooooooood");
+    //
+    // };
+    //
+    // tempUnitEl[2].addEventListener("click", toggleTemp);
+    // tempUnitEl[5].addEventListener("click", toggleTemp);
+
     //Forecast Request
     var forecast = function() {
         //Making sure that your browser has geolocation object
@@ -101,9 +111,10 @@ var weather = function() {
                         //Elements
                         var highTemp = document.getElementById('highTemp');
                         var lowTemp = document.getElementById('lowTemp');
-                        var tempUnitEl = querySelectorAll('main article section div td')[2];
+                        var tempUnitEl = document.querySelectorAll('main article section div td');
                         highTemp.innerHTML = highTempC;
                         lowTemp.innerHTML = lowTempC;
+
                         var toggleTemp = function() {
 
                             if( highTemp.innerHTML == highTempC && lowTemp.innerHTML == lowTempC) {
@@ -117,7 +128,8 @@ var weather = function() {
                             }
 
                         };
-                        tempUnitEl.addEventListener("click", toggleTemp);
+                        tempUnitEl[2].addEventListener("click", toggleTemp);
+                        tempUnitEl[5].addEventListener("click", toggleTemp);
 
                     }
                 };
