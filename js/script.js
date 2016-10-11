@@ -85,12 +85,18 @@ var weather = function() {
     // var tempUnitEl = document.querySelectorAll('tr td');
     // var toggleTemp = function() {
     //
-    //     console.log("Gooooooooood");
+    //     if( tempUnitEl[2].innerHTML == 'C' && tempUnitEl[5].innerHTML == 'C' ) {
+    //         tempUnitEl[2].innerHTML = 'F';
+    //         tempUnitEl[5].innerHTML = 'F';
+    //     } else if ( tempUnitEl[2].innerHTML == 'F' && tempUnitEl[5].innerHTML == 'F' ) {
+    //         tempUnitEl[2].innerHTML = 'C';
+    //         tempUnitEl[5].innerHTML = 'C';
+    //     }
     //
     // };
-    //
-    // tempUnitEl[2].addEventListener("click", toggleTemp);
-    // tempUnitEl[5].addEventListener("click", toggleTemp);
+
+    tempUnitEl[2].addEventListener("click", toggleTemp);
+    tempUnitEl[5].addEventListener("click", toggleTemp);
 
     //Forecast Request
     var forecast = function() {
@@ -120,11 +126,13 @@ var weather = function() {
                             if( highTemp.innerHTML == highTempC && lowTemp.innerHTML == lowTempC) {
                                 highTemp.innerHTML = highTempF;
                                 lowTemp.innerHTML = lowTempF;
-                                tempUnitEl.innerHTML = '<sup>&#x2218;</sup>F';
+                                tempUnitEl[2].innerHTML = '<sup>&#x2218;</sup>F';
+                                tempUnitEl[5].innerHTML = '<sup>&#x2218;</sup>F';
                             } else if ( highTemp.innerHTML == highTempF && lowTemp.innerHTML == lowTempF ) {
                                 highTemp.innerHTML = highTempC;
                                 lowTemp.innerHTML = lowTempC;
-                                tempUnitEl.innerHTML = '<sup>&#x2218;</sup>C';
+                                tempUnitEl[2].innerHTML = '<sup>&#x2218;</sup>C';
+                                tempUnitEl[5].innerHTML = '<sup>&#x2218;</sup>C';
                             }
 
                         };

@@ -90,12 +90,12 @@ main {
             div {
                 height: 50%;
                 @include flexbox;
-                // span {
-                //     font-size: 1.8em;
-                // }
                 td {
                     padding-bottom: 5px;
                     font-size: 1.4em;
+                    &:nth-child(3) {
+                        cursor: pointer;
+                    }
                 }
                 p {
                     margin: $zero;

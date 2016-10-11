@@ -95,6 +95,8 @@ main {
         main article section div td {
           padding-bottom: 5px;
           font-size: 1.4em; }
+          main article section div td:nth-child(3) {
+            cursor: pointer; }
         main article section div p {
           margin: 0; }
       main article section time {
