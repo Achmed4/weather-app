@@ -15,7 +15,7 @@ var weather = function() {
     }();
 
     //Clock and Date function
-    function getClock() {
+    var getClock = function() {
         tday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
         tmonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
         var d = new Date();
@@ -50,7 +50,7 @@ var weather = function() {
         topTimeElement.innerHTML = nhour+":"+nmin+":"+nsec+ap+"";
         bottomTimeElement.innerHTML = ""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear;
 
-    }
+    };
     getClock();
     setInterval(getClock,1000);
 
@@ -72,7 +72,7 @@ var weather = function() {
                         //Elements
                         var countryEl = document.querySelector('main header section h1');
                         var cityEl = document.querySelector('main header section div p');
-                        countryEl.innerHTML = state + ', ' + country;
+                        countryEl.innerHTML = country;
                         cityEl.innerHTML = city;
 
                     }
@@ -94,7 +94,6 @@ var weather = function() {
 
                         //Information
                         var response = JSON.parse(xhr.responseText);
-                        var ampm = response.forecast.simpleforecast.forecastday[0].date.ampm;
                         var highTempC = response.forecast.simpleforecast.forecastday[0].high.celsius;
                         var highTempF = response.forecast.simpleforecast.forecastday[0].high.fahrenheit;
                         var lowTempC = response.forecast.simpleforecast.forecastday[0].low.celsius;
@@ -102,8 +101,23 @@ var weather = function() {
                         //Elements
                         var highTemp = document.getElementById('highTemp');
                         var lowTemp = document.getElementById('lowTemp');
+                        var tempUnitEl = querySelector('main article section div td')[2];
                         highTemp.innerHTML = highTempC;
                         lowTemp.innerHTML = lowTempC;
+                        var toggleTemp = function() {
+
+                            if( highTemp.innerHTML == highTempC && lowTemp.innerHTML == lowTempC) {
+                                highTemp.innerHTML = highTempF;
+                                lowTemp.innerHTML = lowTempF;
+                                tempUnitEl.innerHTML = '<sup>&#x2218;</sup>' + F;
+                            } else if ( highTemp.innerHTML == highTempF && lowTemp.innerHTML == lowTempF ) {
+                                highTemp.innerHTML = highTempC;
+                                lowTemp.innerHTML = lowTempC;
+                                tempUnitEl.innerHTML = '<sup>&#x2218;</sup>' + C;
+                            }
+
+                        };
+                        tempUnitEl.addEventListener("click", toggleTemp);
 
                     }
                 };
