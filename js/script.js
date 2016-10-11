@@ -15,7 +15,7 @@ var weather = function() {
     }();
 
     //Clock and Date function
-    var getClock = function() {
+    function getClock() {
         tday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
         tmonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
         var d = new Date();
@@ -50,8 +50,9 @@ var weather = function() {
         topTimeElement.innerHTML = nhour+":"+nmin+":"+nsec+ap+"";
         bottomTimeElement.innerHTML = ""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear;
 
-    }();
-    setInterval(getClock(),1000);
+    }
+    getClock();
+    setInterval(getClock,1000);
 
     //Location Request
     var location = function() {
