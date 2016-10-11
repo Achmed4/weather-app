@@ -120,11 +120,11 @@ var weather = function() {
                             if( highTemp.innerHTML == highTempC && lowTemp.innerHTML == lowTempC) {
                                 highTemp.innerHTML = highTempF;
                                 lowTemp.innerHTML = lowTempF;
-                                tempUnitEl.innerHTML = '<sup>&#x2218;</sup>' + F;
+                                tempUnitEl.innerHTML = '<sup>&#x2218;</sup>F';
                             } else if ( highTemp.innerHTML == highTempF && lowTemp.innerHTML == lowTempF ) {
                                 highTemp.innerHTML = highTempC;
                                 lowTemp.innerHTML = lowTempC;
-                                tempUnitEl.innerHTML = '<sup>&#x2218;</sup>' + C;
+                                tempUnitEl.innerHTML = '<sup>&#x2218;</sup>C';
                             }
 
                         };
