@@ -118,19 +118,19 @@ var weather = function() {
                         var highTemp = document.getElementById('highTemp');
                         var lowTemp = document.getElementById('lowTemp');
                         var tempUnitEl = document.querySelectorAll('tr td');
-                        highTemp.innerHTML = highTempC + ' <sup>&#x2218;</sup>';
-                        lowTemp.innerHTML = lowTempC + ' <sup>&#x2218;</sup>';
+                        highTemp.innerHTML = highTempC + '<sup>&#x2218;</sup>';
+                        lowTemp.innerHTML = lowTempC + '<sup>&#x2218;</sup>';
 
                         var toggleTemp = function() {
 
-                            if( (highTemp.innerHTML == highTempC + ' <sup>&#x2218;</sup>') && (lowTemp.innerHTML == lowTempC + ' <sup>&#x2218;</sup>') ) {
-                                highTemp.innerHTML = highTempF + ' <sup>&#x2218;</sup>';
-                                lowTemp.innerHTML = lowTempF + ' <sup>&#x2218;</sup>';
+                            if( (highTemp.innerHTML == highTempC + '<sup>&#x2218;</sup>') && (lowTemp.innerHTML == lowTempC + '<sup>&#x2218;</sup>') ) {
+                                highTemp.innerHTML = highTempF + '<sup>&#x2218;</sup>';
+                                lowTemp.innerHTML = lowTempF + '<sup>&#x2218;</sup>';
                                 tempUnitEl[2].innerHTML = 'F';
                                 tempUnitEl[5].innerHTML = 'F';
-                            } else if ( (highTemp.innerHTML == highTempF + ' <sup>&#x2218;</sup>') && (lowTemp.innerHTML == lowTempF + ' <sup>&#x2218;</sup>') ) {
-                                highTemp.innerHTML = highTempC + ' <sup>&#x2218;</sup>';
-                                lowTemp.innerHTML = lowTempC + ' <sup>&#x2218;</sup>';
+                            } else if ( (highTemp.innerHTML == highTempF + '<sup>&#x2218;</sup>') && (lowTemp.innerHTML == lowTempF + '<sup>&#x2218;</sup>') ) {
+                                highTemp.innerHTML = highTempC + '<sup>&#x2218;</sup>';
+                                lowTemp.innerHTML = lowTempC + '<sup>&#x2218;</sup>';
                                 tempUnitEl[2].innerHTML = 'C';
                                 tempUnitEl[5].innerHTML = 'C';
                             }
