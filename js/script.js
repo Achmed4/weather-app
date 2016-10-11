@@ -55,25 +55,30 @@ var weather = function() {
 
     //Location Request
     var location = function() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET',  '//api.wunderground.com/api/ddfbc22639b02032/geolookup/q/' + position.coords.latitude + ',' + position.coords.longitude + '.json');
-        xhr.onreadystatechange = function() {
-            if( (xhr.status === 200) && (xhr.readyState === 4) ) {
+        //Making sure that your browser has geolocation object
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET',  '//api.wunderground.com/api/ddfbc22639b02032/geolookup/q/' + position.coords.latitude + ',' + position.coords.longitude + '.json');
+                xhr.onreadystatechange = function() {
+                    if( (xhr.status === 200) && (xhr.readyState === 4) ) {
 
-                //Information
-                var response = JSON.parse(xhr.responseText);
-                var country = response.location.country_name;
-                var state = response.location.state;
-                var city = response.location.city;
-                //Elements
-                var stateEl = document.querySelector('main header section h1');
-                var cityEl = document.querySelector('main header section div p');
-                stateEl.innerHTML = state + ', ' + country;
-                cityEl.innerHTML = city;
+                        //Information
+                        var response = JSON.parse(xhr.responseText);
+                        var country = response.location.country_name;
+                        var state = response.location.state;
+                        var city = response.location.city;
+                        //Elements
+                        var stateEl = document.querySelector('main header section h1');
+                        var cityEl = document.querySelector('main header section div p');
+                        stateEl.innerHTML = state + ', ' + country;
+                        cityEl.innerHTML = city;
 
-            }
-        };
-        xhr.send();
+                    }
+                };
+                xhr.send();
+            });
+        }
     }();
 
 
