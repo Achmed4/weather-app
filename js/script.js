@@ -101,7 +101,7 @@ var weather = function() {
                         //Elements
                         var highTemp = document.getElementById('highTemp');
                         var lowTemp = document.getElementById('lowTemp');
-                        var tempUnitEl = querySelector('main article section div td')[2];
+                        var tempUnitEl = querySelectorAll('main article section div td')[2];
                         highTemp.innerHTML = highTempC;
                         lowTemp.innerHTML = lowTempC;
                         var toggleTemp = function() {
