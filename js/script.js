@@ -153,6 +153,7 @@ var weather = function() {
                             update += '</li>';
 
                         }
+                        ul.innerHTML = update;
 
                     }
                 };
