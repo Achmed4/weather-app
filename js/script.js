@@ -130,8 +130,8 @@ var weather = function() {
                         var xhrIcon = response.forecast.simpleforecast.forecastday[0].icon;
                         var headerEl = document.querySelector('main header');
                         var blurEl = document.querySelector('.blur');
-                        headerEl.style.backgroundImage = 'url(../img/' + xhrIcon + '.jpg)';
-                        blurEl.style.backgroundImage = 'url(../img/' + xhrIcon + '.jpg)';
+                        headerEl.style.backgroundImage = 'url(img/' + xhrIcon + '.jpg)';
+                        blurEl.style.backgroundImage = 'url(img/' + xhrIcon + '.jpg)';
 
                         for(var i = 0; i < ourIcons.length; i++) {
                             if( ourIcons[i].getAttribute('id') === xhrIcon ) {
