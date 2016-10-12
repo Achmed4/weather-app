@@ -145,7 +145,7 @@ var weather = function() {
                         var forecast10day = response.forecast.simpleforecast.forecastday;
                         var ul = document.getElementById('rest-of-theweek');
                         var update;
-                        for(var j = 1; j < forecast10day.length - 3; j++) {
+                        for(var j = 1; j < forecast10day.length-3; j++) {
 
                             update = '<li>';
                             update = '<time>' + forecast10day[j].date.weekday_short + '</time>';
@@ -155,7 +155,7 @@ var weather = function() {
                             console.log(update);
 
                         }
-                        // ul.innerHTML = update;
+                        ul.innerHTML = update;
 
                     }
                 };
