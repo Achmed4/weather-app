@@ -21,7 +21,9 @@ main {
         height: 70%;
         padding: 20px 20px $zero;
         text-transform: uppercase;
-        background: url("../img/cloudy.jpg") no-repeat center center;
+        background-image: url("../img/cloudy.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
         border-top-right-radius: $ten;
         border-top-left-radius: $ten;
@@ -149,7 +151,9 @@ main {
 
         /* blur background */
         .blur {
-            background: url("../img/cloudy.jpg") no-repeat center center;
+            background-image: url("../img/cloudy.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
             position: absolute;
             width: 100%;

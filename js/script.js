@@ -48,7 +48,7 @@ var weather = function() {
         }
 
         topTimeElement.innerHTML = nhour+":"+nmin+":"+nsec+ap+"";
-        bottomTimeElement.innerHTML = ""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear;
+        bottomTimeElement.innerHTML = ""+tday[nday]+", "+tmonth[nmonth]+" "+ndate;
 
     };
     getClock();
@@ -125,9 +125,13 @@ var weather = function() {
                         tempUnitEl[5].addEventListener("click", toggleTemp);
 
 
-                        //Updating Icon
+                        //Updating Animated Icon and Backgrounds
                         var ourIcons = document.getElementById('weather-icons').children;
                         var xhrIcon = response.forecast.simpleforecast.forecastday[0].icon;
+                        var headerEl = document.querySelector('main header');
+                        var blurEl = document.querySelector('.blur');
+                        headerEl.style.backgroundImage = 'url(../img/' + xhrIcon + '.jpg)';
+                        blurEl.style.backgroundImage = 'url(../img/' + xhrIcon + '.jpg)';
 
                         for(var i = 0; i < ourIcons.length; i++) {
                             if( ourIcons[i].getAttribute('id') === xhrIcon ) {

@@ -32,7 +32,9 @@ main {
     height: 70%;
     padding: 20px 20px 0;
     text-transform: uppercase;
-    background: url("../img/cloudy.jpg") no-repeat center center;
+    background-image: url("../img/cloudy.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px; }
@@ -139,7 +141,9 @@ main {
           display: block;
           font-weight: bold; }
     main article .blur {
-      background: url("../img/cloudy.jpg") no-repeat center center;
+      background-image: url("../img/cloudy.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
       width: 100%;
