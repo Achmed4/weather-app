@@ -347,6 +347,51 @@ main {
   opacity: 0.4;
   animation: spin 16s linear infinite reverse; }
 
+/*Moon*/
+.moon {
+  display: inline-block;
+  -webkit-animation: moon_star 5s ease-in-out infinite;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: #FFFFFF 26px 7px 0 -1px, rgba(255, 255, 255, 0.1) -36px -19px 0 -1px, rgba(255, 255, 255, 0.1) -51px -34px 0 -1px, #FFFFFF -52px -62px 0 -1px, #FFFFFF 14px -37px, rgba(255, 255, 255, 0.1) 41px -19px, #FFFFFF 34px -50px, rgba(255, 255, 255, 0.1) 14px -71px 0 -1px, #FFFFFF 64px -21px 0 -1px, rgba(255, 255, 255, 0.1) 32px -85px 0 -1px, #FFFFFF 64px -90px, rgba(255, 255, 255, 0.1) 60px -67px 0 -1px, #FFFFFF 34px -127px, rgba(255, 255, 255, 0.1) -26px -103px 0 -1px;
+  height: 4px;
+  width: 4px;
+  opacity: 1;
+  position: absolute;
+  left: 80px;
+  top: 132px; }
+
+.moon:before {
+  -webkit-animation: moon 9s ease-in-out infinite;
+  border-radius: 50%;
+  box-shadow: #FFFFFF -35px 0;
+  content: '';
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  top: -115px;
+  -webkit-transform: rotate(-5deg);
+  -webkit-transform-origin: 0 50%; }
+
+.moon:after {
+  -webkit-animation: moon 9s ease-in-out infinite;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) -5px 0 0;
+  content: '';
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  top: -115px;
+  left: -30px;
+  -webkit-transform: rotate(-5deg);
+  -webkit-transform-origin: 30px 50%; }
+
+@-webkit-keyframes moon {
+  50% {
+    -webkit-transform: rotate(10deg); } }
+@-webkit-keyframes moon_star {
+  50% {
+    box-shadow: rgba(255, 255, 255, 0.1) 26px 7px 0 -1px, #FFFFFF -36px -19px 0 -1px, #FFFFFF -51px -34px 0 -1px, rgba(255, 255, 255, 0.1) -52px -62px 0 -1px, rgba(255, 255, 255, 0.1) 14px -37px, #FFFFFF 41px -19px, rgba(255, 255, 255, 0.1) 34px -50px, #FFFFFF 14px -71px 0 -1px, rgba(255, 255, 255, 0.1) 64px -21px 0 -1px, #FFFFFF 32px -85px 0 -1px, rgba(255, 255, 255, 0.1) 64px -90px, #FFFFFF 60px -67px 0 -1px, rgba(255, 255, 255, 0.1) 34px -127px, #FFFFFF -26px -103px 0 -1px; } }
 /* Animations */
 @keyframes spin {
   100% {

@@ -35,12 +35,12 @@
                             <tr>
                                 <td>High</td>
                                 <td id="highTemp"></td>
-                                <td>C</td>
+                                <td><sup>&#x2218;</sup>C</td>
                             </tr>
                             <tr>
                                 <td>Low</td>
                                 <td id="lowTemp"></td>
-                                <td>C</td> <!-- <sup>&#x2218;</sup> -->
+                                <td><sup>&#x2218;</sup>C</td>
                             </tr>
                         </table>
                         <p id="current-icon"></p>
@@ -84,7 +84,7 @@
 
         <div id="weather-icons" style="display:none">
 
-            <div id="chancerain">
+            <div class="chancerain">
                 <div class="icon sun-shower">
                     <div class="cloud"></div>
                     <div class="sun">
@@ -122,6 +122,75 @@
             </div>
 
             <div id="partlycloudy">
+                <div class="icon sun-shower">
+                    <div class="cloud"></div>
+                    <div class="sun">
+                        <div class="rays"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mostlycloudy">
+                <div class="icon sun-shower">
+                    <div class="cloud"></div>
+                    <div class="sun">
+                        <div class="rays"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mostlysunny">
+                <div class="icon sun-shower">
+                    <div class="cloud"></div>
+                    <div class="sun">
+                        <div class="rays"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="nt_partlycloudy">
+                <div class="icon cloudy">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                </div>
+            </div>
+
+            <div id="nt_mostlysunny">
+                <div class="icon cloudy">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                </div>
+            </div>
+
+            <div id="nt_mostlycloudy">
+                <div class="icon cloudy">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                </div>
+            </div>
+
+            <div id="hazy">
+                <div class="icon cloudy">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                </div>
+            </div>
+
+            <div id="nt_hazy">
+                <div class="icon cloudy">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                </div>
+            </div>
+
+            <div id="fog">
+                <div class="icon cloudy">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                </div>
+            </div>
+
+            <div id="nt_fog">
                 <div class="icon cloudy">
                     <div class="cloud"></div>
                     <div class="cloud"></div>
@@ -177,6 +246,13 @@
                 <div class="icon rainy">
                     <div class="cloud"></div>
                     <div class="rain"></div>
+                </div>
+            </div>
+
+            <div id="nt_clear">
+                <div class="icon">
+                    <div class="moon">
+                    </div>
                 </div>
             </div>
 

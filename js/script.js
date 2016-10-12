@@ -82,22 +82,6 @@ var weather = function() {
         }
     }();
 
-    // var tempUnitEl = document.querySelectorAll('tr td');
-    // var toggleTemp = function() {
-    //
-    //     if( tempUnitEl[2].innerHTML == 'C' && tempUnitEl[5].innerHTML == 'C' ) {
-    //         tempUnitEl[2].innerHTML = 'F';
-    //         tempUnitEl[5].innerHTML = 'F';
-    //     } else if ( tempUnitEl[2].innerHTML == 'F' && tempUnitEl[5].innerHTML == 'F' ) {
-    //         tempUnitEl[2].innerHTML = 'C';
-    //         tempUnitEl[5].innerHTML = 'C';
-    //     }
-    //
-    // };
-    //
-    // tempUnitEl[2].addEventListener("click", toggleTemp);
-    // tempUnitEl[5].addEventListener("click", toggleTemp);
-
     //Forecast Request
     var forecast = function() {
         //Making sure that your browser has geolocation object
@@ -121,6 +105,7 @@ var weather = function() {
                         highTemp.innerHTML = highTempC;
                         lowTemp.innerHTML = lowTempC;
 
+                        //Toggle temp between C & F
                         var toggleTemp = function() {
 
                             if( (highTemp.innerHTML == highTempC) && (lowTemp.innerHTML == lowTempC) ) {
@@ -139,6 +124,19 @@ var weather = function() {
                         tempUnitEl[2].addEventListener("click", toggleTemp);
                         tempUnitEl[5].addEventListener("click", toggleTemp);
 
+
+                        //Updating Icon
+                        var ourIcons = document.getElementById('weather-icons').children;
+                        var xhrIcon = response.forecast.simpleforecast.forecastday[0].icon;
+
+                        for(var i = 0; i < ourIcons.length; i++) {
+                            if( ourIcons[i].getAttribute('id') === xhrIcon ) {
+                                var ourIcon = ourIcons[i].innerHTML;
+                                var iconEl = document.getElementById('current-icon');
+                                iconEl.innerHTML = ourIcon;
+                            }
+                        }
+
                     }
                 };
                 xhr.send();
@@ -146,8 +144,8 @@ var weather = function() {
         }
     }();
 
-    var sunShowerIcon = document.querySelector('#clear').innerHTML;
-    var iconElement = document.getElementById('current-icon');
-    iconElement.innerHTML = sunShowerIcon;
+    // var sunShowerIcon = document.querySelector('#nt_clear').innerHTML;
+    // var iconElement = document.getElementById('current-icon');
+    // iconElement.innerHTML = sunShowerIcon;
 
 }();
