@@ -82,6 +82,11 @@ var weather = function() {
         }
     }();
 
+    // var headerEl = document.querySelector('main header');
+    // var blurEl = document.querySelector('.blur');
+    // headerEl.style.backgroundImage = 'url(img/clear.jpg)';
+    // blurEl.style.backgroundImage = 'url(img/clear.jpg)';
+
     //Forecast Request
     var forecast = function() {
         //Making sure that your browser has geolocation object
@@ -130,8 +135,8 @@ var weather = function() {
                         var xhrIcon = response.forecast.simpleforecast.forecastday[0].icon;
                         var headerEl = document.querySelector('main header');
                         var blurEl = document.querySelector('.blur');
-                        headerEl.style.backgroundImage = 'url(img/' + xhrIcon + '.jpg)';
-                        blurEl.style.backgroundImage = 'url(img/' + xhrIcon + '.jpg)';
+                        headerEl.style.backgroundImage = 'url(http://achmed4.github.io/img/' + xhrIcon + '.jpg)';
+                        blurEl.style.backgroundImage = 'url(url(http://achmed4.github.io/img/' + xhrIcon + '.jpg)';
 
                         for(var i = 0; i < ourIcons.length; i++) {
                             if( ourIcons[i].getAttribute('id') === xhrIcon ) {
