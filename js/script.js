@@ -82,11 +82,6 @@ var weather = function() {
         }
     }();
 
-    // var headerEl = document.querySelector('main header');
-    // var blurEl = document.querySelector('.blur');
-    // headerEl.style.backgroundImage = 'url(img/clear.jpg)';
-    // blurEl.style.backgroundImage = 'url(img/clear.jpg)';
-
     //Forecast Request
     var forecast = function() {
         //Making sure that your browser has geolocation object
@@ -146,15 +141,24 @@ var weather = function() {
                             }
                         }
 
+                        //Updating forecast fore the rest of the week
+                        var forecast10day = response.forecast.simpleforecast.forecastday;
+                        var ul = document.getElementById('rest-of-theweek');
+                        var update;
+                        for(var j = 1; j < forecast10day.length - 3; j++) {
+
+                            update = '<li>';
+                            update = '<time>' + forecast10day[j].date.weekday_short + '</time>';
+                            update = '<span>' + forecast10day[j].high.celsius + ' <sup>&#x2218;</sup></span>';
+                            update += '</li>';
+
+                        }
+
                     }
                 };
                 xhr.send();
             });
         }
     }();
-
-    // var sunShowerIcon = document.querySelector('#nt_clear').innerHTML;
-    // var iconElement = document.getElementById('current-icon');
-    // iconElement.innerHTML = sunShowerIcon;
 
 }();
