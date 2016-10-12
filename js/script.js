@@ -144,12 +144,12 @@ var weather = function() {
                         //Updating forecast fore the rest of the week
                         var forecast10day = response.forecast.simpleforecast.forecastday;
                         var ul = document.getElementById('rest-of-theweek');
-                        var update;
+                        var update = '';
                         for(var j = 1; j < forecast10day.length-3; j++) {
 
                             update += '<li>';
                             update += '<time>' + forecast10day[j].date.weekday_short + '</time>';
-                            update += '<span>' + forecast10day[j].high.celsius + ' <sup>&#x2218;</sup></span>';
+                            update += '<span>' + forecast10day[j].high.celsius + '<sup>&#x2218;</sup></span>';
                             update += '</li>';
 
                             console.log(update);
