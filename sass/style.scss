@@ -21,7 +21,7 @@ main {
         height: 70%;
         padding: 20px 20px $zero;
         text-transform: uppercase;
-        background-image: url("../img/cloudy.jpg");
+        // background-image: url("../img/cloudy.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -111,7 +111,7 @@ main {
                 text-align: center;
                 text-transform: uppercase;
                 font-size: 0.95em;
-                margin-top: 10%;
+                margin-top: 15px;
             }
         }
 
@@ -151,7 +151,7 @@ main {
 
         /* blur background */
         .blur {
-            background-image: url("../img/cloudy.jpg");
+            // background-image: url("../img/cloudy.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -163,7 +163,7 @@ main {
             -webkit-filter: blur(10px); //20px
             -o-filter: blur(10px);
             filter: blur(10px);
-            opacity: 0.9;
+            // opacity: 0.9;
         }
     }
 }
