@@ -152,8 +152,10 @@ var weather = function() {
                             update = '<span>' + forecast10day[j].high.celsius + ' <sup>&#x2218;</sup></span>';
                             update += '</li>';
 
+                            console.log(update);
+
                         }
-                        ul.innerHTML = update;
+                        // ul.innerHTML = update;
 
                     }
                 };
