@@ -149,6 +149,7 @@ var weather = function() {
 
                             update += '<li>';
                             update += '<time>' + forecast10day[j].date.weekday_short + '</time>';
+                            update += '<img src="' + forecast10day[j].icon_url + '" />';
                             update += '<span>' + forecast10day[j].high.celsius + '<sup>&#x2218;</sup></span>';
                             update += '</li>';
 
