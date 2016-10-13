@@ -177,14 +177,32 @@ var weather = function() {
                         var forecast10day = response.forecast.simpleforecast.forecastday;
                         var ul = document.getElementById('rest-of-theweek');
                         var update = '';
+                        var tempsC;
+                        var tempsF;
                         for(var j = 1; j < forecast10day.length-3; j++) {
+                            tempsC = forecast10day[j].high.celsius;
+                            tempsF = forecast10day[j].high.fahrenheit;
                             update += '<li>';
                             update += '<time>' + forecast10day[j].date.weekday_short + '</time>';
                             update += '<img src="' + forecast10day[j].icon_url + '" />';
-                            update += '<span>' + forecast10day[j].high.celsius + '<sup>&#x2218;</sup></span>';
+                            update += '<span class="weekTemp">' + tempsC + '<sup>&#x2218;</sup>C</span>';
                             update += '</li>';
                         }
                         ul.innerHTML = update;
+
+                        //Toggle temp between C & F
+                        var toggleTemps = function() {
+
+                            var temps = document.querySelectorAll('.weekTemp');
+
+                            if( temps.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                temps.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                            } else if( temps.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                temps.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                            }
+
+                        };
+                        temps.addEventListener("click", toggleTemps);
 
                     }
                 };
