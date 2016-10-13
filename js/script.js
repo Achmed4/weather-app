@@ -185,7 +185,7 @@ var weather = function() {
                             update += '<li>';
                             update += '<time>' + forecast10day[j].date.weekday_short + '</time>';
                             update += '<img src="' + forecast10day[j].icon_url + '" />';
-                            update += '<span class="weekTemp">' + tempsC + '<sup>&#x2218;</sup>C</span>';
+                            update += '<span>' + tempsC + '<sup>&#x2218;</sup>C</span>';
                             update += '</li>';
                         }
                         ul.innerHTML = update;
@@ -194,7 +194,7 @@ var weather = function() {
                         var temps;
                         var toggleTemps = function() {
 
-                            temps = document.querySelectorAll('.weekTemp');
+                            temps = document.querySelectorAll('ul span');
 
                             if( temps.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
                                 temps.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
