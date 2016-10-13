@@ -150,15 +150,11 @@ var weather = function() {
                                 nsec="0"+nsec;
                             }
 
-                            function iconName() {
-                                if( nhour >= 6 && ap === ' PM' ) {
-                                    xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
-                                } else if ( nhour >= 6 && ap === ' AM' ) {
-                                    xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
-                                }
-                                return xhrIcon;
+                            if( (nhour >= 6 && ap == ' PM') || (nhour <= 6 && ap == ' AM') ) {
+                                xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
+                            } else { //(nhour >= 6 && ap == ' AM') || (nhour >= 6 && ap == ' AM')
+                                xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
                             }
-                            iconName();
 
                             console.log(xhrIcon);
                         };
