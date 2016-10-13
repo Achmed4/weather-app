@@ -131,7 +131,7 @@ var weather = function() {
                         var topTimeElement = document.querySelector('main header section div time');
                         if(topTimeElement.innerHTML >= '6:00:00 AM') {
                             xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
-                        } else if(topTimeElement.innerHTML <= '6:00:00 PM') {
+                        } else if(topTimeElement.innerHTML >= '6:00:00 PM') {
                             xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
                         }
                         var headerEl = document.querySelector('main header');
@@ -152,15 +152,11 @@ var weather = function() {
                         var ul = document.getElementById('rest-of-theweek');
                         var update = '';
                         for(var j = 1; j < forecast10day.length-3; j++) {
-
                             update += '<li>';
                             update += '<time>' + forecast10day[j].date.weekday_short + '</time>';
                             update += '<img src="' + forecast10day[j].icon_url + '" />';
                             update += '<span>' + forecast10day[j].high.celsius + '<sup>&#x2218;</sup></span>';
                             update += '</li>';
-
-                            console.log(update);
-
                         }
                         ul.innerHTML = update;
 
