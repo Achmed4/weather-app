@@ -113,7 +113,7 @@ var weather = function() {
                                 lowTemp.innerHTML = lowTempF;
                                 tempUnitEl[2].innerHTML = '<sup>&#x2218;</sup>F';
                                 tempUnitEl[5].innerHTML = '<sup>&#x2218;</sup>F';
-                            } else if ( (highTemp.innerHTML == highTempF) && (lowTemp.innerHTML == lowTempF) ) {
+                            } else if( (highTemp.innerHTML == highTempF) && (lowTemp.innerHTML == lowTempF) ) {
                                 highTemp.innerHTML = highTempC;
                                 lowTemp.innerHTML = lowTempC;
                                 tempUnitEl[2].innerHTML = '<sup>&#x2218;</sup>C';
@@ -127,7 +127,13 @@ var weather = function() {
 
                         //Updating Animated Icon and Backgrounds
                         var ourIcons = document.getElementById('weather-icons').children;
-                        var xhrIcon = response.forecast.simpleforecast.forecastday[0].icon;
+                        var xhrIcon;
+                        var topTimeElement = document.querySelector('main header section div time');
+                        if(topTimeElement.innerHTML >= '6:00:00 AM') {
+                            xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
+                        } else if(topTimeElement.innerHTML <= '6:00:00 PM') {
+                            xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
+                        }
                         var headerEl = document.querySelector('main header');
                         var blurEl = document.querySelector('.blur');
                         headerEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
