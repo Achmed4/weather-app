@@ -130,8 +130,7 @@ var weather = function() {
                         var timeDifference = function() {
                             var d = new Date();
                             var nhour = d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
-                            var ourIcons = document.getElementById('weather-icons').children;
-                            var topTimeElement = document.querySelector('main header section div time');
+
                             if(nhour === 0) {
                                 ap=" AM";nhour=12;
                                 xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
@@ -168,6 +167,7 @@ var weather = function() {
                         headerEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
                         blurEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
 
+                        var ourIcons = document.getElementById('weather-icons').children;
                         for(var i = 0; i < ourIcons.length; i++) {
                             if( ourIcons[i].getAttribute('id') === xhrIcon ) {
                                 var ourIcon = ourIcons[i].innerHTML;
