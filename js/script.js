@@ -16,11 +16,11 @@ var weather = function() {
 
     //Clock and Date function
     var getClock = function() {
-        tday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-        tmonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+        var tday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+        var tmonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
         var d = new Date();
-        var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
-        var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+        var nday = d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+        var nhour = d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
         var topTimeElement = document.querySelector('main header section div time');
         var bottomTimeElement = document.querySelector('main article section time');
 
@@ -125,19 +125,52 @@ var weather = function() {
                         tempUnitEl[5].addEventListener("click", toggleTemp);
 
 
-                        //Updating Animated Icon and Backgrounds
-                        var ourIcons = document.getElementById('weather-icons').children;
-                        var xhrIcon;
-                        var topTimeElement = document.querySelector('main header section div time');
-                        if( topTimeElement.innerHTML >= '6:00:00 AM' && topTimeElement <= '6:00:00 PM' ) {
-                            xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
-                        } else {
-                            xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
-                        }
-                        var headerEl = document.querySelector('main header');
-                        var blurEl = document.querySelector('.blur');
-                        headerEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
-                        blurEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
+                        //Updating Animated Icon and Backgrounds depending on time
+                        var timeDifference = function() {
+                            var d = new Date();
+                            var nhour = d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+                            var ourIcons = document.getElementById('weather-icons').children;
+                            var xhrIcon;
+                            var topTimeElement = document.querySelector('main header section div time');
+                            if(nhour === 0) {
+                                ap=" AM";nhour=12;
+                                xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
+                            } else if(nhour<12){
+                                ap=" AM";
+                            } else if(nhour === 12) {
+                                ap=" PM";
+                                xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
+                            } else if(nhour>12) {
+                                ap=" PM";
+                                nhour-=12;
+                            }
+
+                            if(nmin<=9) {
+                                nmin="0"+nmin;
+                            }
+
+                            if(nsec<=9) {
+                                nsec="0"+nsec;
+                            }
+                            var headerEl = document.querySelector('main header');
+                            var blurEl = document.querySelector('.blur');
+                            headerEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
+                            blurEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
+                            console.log(nhour+":"+nmin+":"+nsec+ap+"");
+                        };
+                        timeDifference();
+                        setInterval(timeDifference,1000);
+
+
+                        // if( topTimeElement.innerHTML >= '6:00:00 AM' && topTimeElement <= '6:00:00 PM' ) {
+                        //     xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
+                        // } else {
+                        //     xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
+                        // }
+                        // var headerEl = document.querySelector('main header');
+                        // var blurEl = document.querySelector('.blur');
+                        // headerEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
+                        // blurEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
 
                         for(var i = 0; i < ourIcons.length; i++) {
                             if( ourIcons[i].getAttribute('id') === xhrIcon ) {
