@@ -126,7 +126,7 @@ var weather = function() {
 
 
                         //Updating Animated Icon and Backgrounds depending on time
-                        var xhrIcon;
+                        var xhrIcon = '';
                         var timeDifference = function() {
                             var d = new Date();
                             var nhour = d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
