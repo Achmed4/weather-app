@@ -129,9 +129,9 @@ var weather = function() {
                         var ourIcons = document.getElementById('weather-icons').children;
                         var xhrIcon;
                         var topTimeElement = document.querySelector('main header section div time');
-                        if(topTimeElement.innerHTML >= '6:00:00 AM') {
+                        if( topTimeElement.innerHTML >= '6:00:00 AM' && topTimeElement <= '6:00:00 PM' ) {
                             xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
-                        } else if(topTimeElement.innerHTML >= '6:00:00 PM') {
+                        } else {
                             xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
                         }
                         var headerEl = document.querySelector('main header');
