@@ -141,7 +141,7 @@ var weather = function() {
                             }
                         }
 
-                        //Updating forecast fore the rest of the week
+                        //Updating forecast for the rest of the week
                         var forecast10day = response.forecast.simpleforecast.forecastday;
                         var ul = document.getElementById('rest-of-theweek');
                         var update = '';
