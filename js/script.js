@@ -156,7 +156,6 @@ var weather = function() {
                                 xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
                             }
 
-                            console.log(xhrIcon);
                         };
                         timeDifference();
                         setInterval(timeDifference,1000);
