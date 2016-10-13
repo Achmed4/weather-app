@@ -137,12 +137,14 @@ var weather = function() {
                                 xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
                             } else if(nhour<12){
                                 ap=" AM";
+                                xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
                             } else if(nhour === 12) {
                                 ap=" PM";
                                 xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
                             } else if(nhour>12) {
                                 ap=" PM";
                                 nhour-=12;
+                                xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
                             }
 
                             if(nmin<=9) {
