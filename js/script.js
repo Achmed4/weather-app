@@ -191,9 +191,10 @@ var weather = function() {
                         ul.innerHTML = update;
 
                         //Toggle temp between C & F
+                        var temps;
                         var toggleTemps = function() {
 
-                            var temps = document.querySelectorAll('.weekTemp');
+                            temps = document.querySelectorAll('.weekTemp');
 
                             if( temps.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
                                 temps.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
