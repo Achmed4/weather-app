@@ -126,7 +126,7 @@ var weather = function() {
 
 
                         //Updating Animated Icon and Backgrounds depending on time
-                        var xhrIcon = '';
+                        var xhrIcon;
                         var timeDifference = function() {
                             var d = new Date();
                             var nhour = d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
@@ -150,21 +150,20 @@ var weather = function() {
                                 nsec="0"+nsec;
                             }
 
-                            if( nhour >= 6 && ap == ' PM' ) {
-                                xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
-                            } else if ( nhour >= 6 && ap == ' AM' ) {
-                                xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
+                            function iconName() {
+                                if( nhour >= 6 && ap === ' PM' ) {
+                                    xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
+                                } else if ( nhour >= 6 && ap === ' AM' ) {
+                                    xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
+                                }
+                                return xhrIcon;
                             }
+                            iconName();
 
                             console.log(xhrIcon);
                         };
                         timeDifference();
                         setInterval(timeDifference,1000);
-                        // if( topTimeElement.innerHTML >= '6:00:00 AM' && topTimeElement <= '6:00:00 PM' ) {
-                        //     xhrIcon = response.forecast.txt_forecast.forecastday[0].icon;
-                        // } else {
-                        //     xhrIcon = response.forecast.txt_forecast.forecastday[1].icon;
-                        // }
                         var headerEl = document.querySelector('main header');
                         var blurEl = document.querySelector('.blur');
                         headerEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
