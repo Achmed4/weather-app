@@ -192,25 +192,17 @@ var weather = function() {
 
                         //Toggle temps between C & F
                         var temps = document.querySelectorAll('#rest-of-theweek span');
-                        // var toggleTemps = function() {
-                        //
-                        //     if( this.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                        //         this.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                        //     } else if( this.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                        //         this.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                        //     }
-                        //
-                        // };
+                        var toggleTemps = function() {
+
+                            if( this.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                this.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                            } else if( this.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                this.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                            }
+
+                        };
                         for(var h = 0; h < temps.length; h++) {
-                            temps[h].addEventListener("click", function() {
-
-                                if( this.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                                    this.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                } else if( this.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                                    this.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                                }
-
-                            });
+                            temps[h].addEventListener("click", toggleTemps);
                         }
                         // temps.addEventListener("click", toggleTemps);
 
