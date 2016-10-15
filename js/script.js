@@ -193,7 +193,7 @@ var weather = function() {
                         //Toggle temps between C & F
                         var temps = document.querySelectorAll('#rest-of-theweek span');
                         var toggleTemps = function() {
-                            
+
                             if( temps.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
                                 temps.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
                             } else if( temps.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
@@ -202,9 +202,10 @@ var weather = function() {
 
                         };
                         for(var h = 0; h < temps.length; h++) {
-                            temps[h].addEventListener("click", toggleTemps);
+                            // temps[h].addEventListener("click", toggleTemps);
+                            alert('ahmed');
                         }
-                        temps.addEventListener("click", toggleTemps);
+                        // temps.addEventListener("click", toggleTemps);
 
                     }
                 };
