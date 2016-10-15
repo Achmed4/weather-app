@@ -203,7 +203,11 @@ var weather = function() {
                             }
 
                         };
-                        temps.addEventListener("click", toggleTemps);
+                        for(var h = 0; h < temps.length; h++) {
+                            temps[h].addEventListener("click", toggleTemps);
+                        }
+                        console.log(temps);
+                        // temps.addEventListener("click", toggleTemps);
 
                     }
                 };
