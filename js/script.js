@@ -202,8 +202,9 @@ var weather = function() {
 
                         };
                         for(var h = 0; h < temps.length; h++) {
-                            // temps[h].addEventListener("click", toggleTemps);
-                            alert('ahmed');
+                            temps[h].addEventListener("click", function() {
+                                alert('ahmed');
+                            });
                         }
                         // temps.addEventListener("click", toggleTemps);
 
