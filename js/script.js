@@ -204,10 +204,10 @@ var weather = function() {
                         for(var h = 0; h < temps.length; h++) {
                             temps[h].addEventListener("click", function() {
 
-                                if( temps[h].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                                    temps[h].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                                    temps[h].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                                if( this.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                    this.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                                } else if( this.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                    this.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
                                 }
 
                             });
