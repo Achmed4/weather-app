@@ -206,7 +206,8 @@ var weather = function() {
                         for(var h = 0; h < temps.length; h++) {
                             temps[h].addEventListener("click", toggleTemps);
                         }
-                        console.log(temps);
+                        // temps = document.querySelectorAll('#rest-of-theweek span');
+                        // console.log(temps);
                         // temps.addEventListener("click", toggleTemps);
 
                     }
@@ -215,5 +216,8 @@ var weather = function() {
             });
         }
     }();
+
+    temps = document.querySelectorAll('#rest-of-theweek span');
+    console.log(temps);
 
 }();
