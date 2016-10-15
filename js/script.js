@@ -177,9 +177,11 @@ var weather = function() {
                         var forecast10day = response.forecast.simpleforecast.forecastday;
                         var ul = document.getElementById('rest-of-theweek');
                         var update = '';
-                        var tempsC = forecast10day[j].high.celsius;
-                        var tempsF = forecast10day[j].high.fahrenheit;
+                        var tempsC;
+                        var tempsF;
                         for(var j = 1; j < forecast10day.length-3; j++) {
+                            tempsC = forecast10day[j].high.celsius;
+                            tempsF = forecast10day[j].high.fahrenheit;
                             update += '<li>';
                             update += '<time>' + forecast10day[j].date.weekday_short + '</time>';
                             update += '<img src="' + forecast10day[j].icon_url + '" />';
