@@ -191,11 +191,9 @@ var weather = function() {
                         ul.innerHTML = update;
 
                         //Toggle temps between C & F
-                        var temps;
+                        var temps = document.querySelectorAll('#rest-of-theweek span');
                         var toggleTemps = function() {
-
-                            temps = document.querySelectorAll('#rest-of-theweek span');
-
+                            
                             if( temps.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
                                 temps.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
                             } else if( temps.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
@@ -206,9 +204,7 @@ var weather = function() {
                         for(var h = 0; h < temps.length; h++) {
                             temps[h].addEventListener("click", toggleTemps);
                         }
-                        // temps = document.querySelectorAll('#rest-of-theweek span');
-                        // console.log(temps);
-                        // temps.addEventListener("click", toggleTemps);
+                        temps.addEventListener("click", toggleTemps);
 
                     }
                 };
@@ -216,8 +212,5 @@ var weather = function() {
             });
         }
     }();
-
-    temps = document.querySelectorAll('#rest-of-theweek span');
-    console.log(temps);
 
 }();
