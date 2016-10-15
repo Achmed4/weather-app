@@ -177,11 +177,9 @@ var weather = function() {
                         var forecast10day = response.forecast.simpleforecast.forecastday;
                         var ul = document.getElementById('rest-of-theweek');
                         var update = '';
-                        var tempsC;
-                        var tempsF;
+                        var tempsC = forecast10day[j].high.celsius;
+                        var tempsF = forecast10day[j].high.fahrenheit;
                         for(var j = 1; j < forecast10day.length-3; j++) {
-                            tempsC = forecast10day[j].high.celsius;
-                            tempsF = forecast10day[j].high.fahrenheit;
                             update += '<li>';
                             update += '<time>' + forecast10day[j].date.weekday_short + '</time>';
                             update += '<img src="' + forecast10day[j].icon_url + '" />';
@@ -194,17 +192,15 @@ var weather = function() {
                         var temps = document.querySelectorAll('#rest-of-theweek span');
                         var toggleTemps = function() {
 
-                            if( temps.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                                temps.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                            } else if( temps.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                                temps.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                            if( this.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                this.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                            } else if( this.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                this.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
                             }
 
                         };
                         for(var h = 0; h < temps.length; h++) {
-                            temps[h].addEventListener("click", function() {
-                                alert('ahmed');
-                            });
+                            temps[h].addEventListener("click", toggleTemps);
                         }
                         // temps.addEventListener("click", toggleTemps);
 
