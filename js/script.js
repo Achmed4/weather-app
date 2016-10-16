@@ -194,10 +194,10 @@ var weather = function() {
                         var temps = document.querySelectorAll('#rest-of-theweek span');
                         var toggleTemps = function() {
 
-                            if( this.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                                this.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                            } else if( this.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                                this.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                            if( temps[h].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                temps[h].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                            } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                temps[h].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
                             }
 
                         };
