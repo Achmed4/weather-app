@@ -191,25 +191,17 @@ var weather = function() {
                             update += '</li>';
                             //Toggle temps between C & F
                             temps = document.querySelectorAll('#rest-of-theweek span');
-                            // toggleTemps = function() {
-                            //
-                            //     if( temps[b].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                            //         temps[b].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                            //     } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                            //         temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                            //     }
-                            //
-                            // };
+                            toggleTemps = function() {
+
+                                if( temps[h].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                    temps[h].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                                } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                    temps[h].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                                }
+
+                            };
                             for(var h = 0; h < temps.length; h++) {
-                                temps[h].addEventListener("click", function() {
-
-                                    if( temps[h].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                                        temps[h].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                    } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                                        temps[h].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                                    }
-
-                                });
+                                temps[h].addEventListener("click", toggleTemps);
                             }
                         }
                         ul.innerHTML = update;
@@ -221,7 +213,7 @@ var weather = function() {
                         //     for(var b = 0; b < temps.length; b++) {
                         //         if( temps[b].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
                         //             temps[b].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                        //         } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                        //         } else if( temps[b].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
                         //             temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
                         //         }
                         //     }
