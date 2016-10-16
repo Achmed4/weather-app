@@ -179,6 +179,8 @@ var weather = function() {
                         var update = '';
                         var tempsC;
                         var tempsF;
+                        var temps;
+                        var toggleTemps;
                         for(var j = 1; j < forecast10day.length-3; j++) {
                             tempsC = forecast10day[j].high.celsius;
                             tempsF = forecast10day[j].high.fahrenheit;
@@ -187,22 +189,35 @@ var weather = function() {
                             update += '<img src="' + forecast10day[j].icon_url + '" />';
                             update += '<span>' + tempsC + '<sup>&#x2218;</sup>C</span>';
                             update += '</li>';
+                            //Toggle temps between C & F
+                            temps = document.querySelectorAll('#rest-of-theweek span');
+                            toggleTemps = function() {
+
+                                for(var b = 0; b < temps.length; b++) {
+                                    if( temps[b].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                        temps[b].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                                    } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                        temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                                    }
+                                }
+
+                            };
                         }
                         ul.innerHTML = update;
 
-                        //Toggle temps between C & F
-                        var temps = document.querySelectorAll('#rest-of-theweek span');
-                        var toggleTemps = function() {
-
-                            for(var b = 0; b < temps.length; b++) {
-                                if( temps[b].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                                    temps[b].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                                    temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                                }
-                            }
-
-                        };
+                        // //Toggle temps between C & F
+                        // temps = document.querySelectorAll('#rest-of-theweek span');
+                        // toggleTemps = function() {
+                        //
+                        //     for(var b = 0; b < temps.length; b++) {
+                        //         if( temps[b].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                        //             temps[b].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                        //         } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                        //             temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                        //         }
+                        //     }
+                        //
+                        // };
                         for(var h = 0; h < temps.length; h++) {
                             temps[h].addEventListener("click", toggleTemps);
                         }
