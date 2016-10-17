@@ -194,19 +194,42 @@ var weather = function() {
 
                         //Toggle temps between C & F
                         var temps = document.querySelectorAll('#rest-of-theweek span');
-                        var toggleTemps = function() {
+                        var toggleTemps = function(e) {
 
-                            for(var b = 1; b < forecast10day.length-3; b++) {
-                                var tempsC = forecast10day[b].high.celsius;
-                                var tempsF = forecast10day[b].high.fahrenheit;
-                                for(var a = 0; a < temps.length; a++) {
-                                    if( temps[a].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                            // for(var b = 1; b < forecast10day.length-3; b++) {
+                            //     var tempsC = forecast10day[b].high.celsius;
+                            //     var tempsF = forecast10day[b].high.fahrenheit;
+                            //     for(var a = 0; a < temps.length; a++) {
+                            //         if( temps[a].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                            //             temps[a].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                            //         } else if( temps[a].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                            //             temps[a].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                            //         }
+                            //     }
+                            // }
+                            for(var g = 1; g < forecast10day.length-3; g++) {
+                                var tempsC = forecast10day[g].high.celsius;
+                                var tempsF = forecast10day[g].high.fahrenheit;
+                                if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                    for(var a = 0; a < temps.length; a++) {
                                         temps[a].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                    } else if( temps[a].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                                        temps[a].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                                    }
+                                } else {
+                                    for(var b = 0; b < temps.length; b++) {
+                                        temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
                                     }
                                 }
                             }
+
+                            // if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                            //     for(var a = 0; a < temps.length; a++) {
+                            //         temps[a].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                            //     }
+                            // } else {
+                            //     for(var b = 0; b < temps.length; b++) {
+                            //         temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                            //     }
+                            // }
 
                         };
                         for(var h = 0; h < temps.length; h++) {
