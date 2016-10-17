@@ -211,15 +211,9 @@ var weather = function() {
                                 var tempsC = forecast10day[g].high.celsius;
                                 var tempsF = forecast10day[g].high.fahrenheit;
                                 if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                                    for(var a = 0; a < temps.length; a++) {
-                                        // temps[a].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                        e.target.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                    }
-                                } else {
-                                    for(var b = 0; b < temps.length; b++) {
-                                        // temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                                        e.target.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                                    }
+                                    e.target.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                                } else if( e.target.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                    e.target.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
                                 }
                             }
 
