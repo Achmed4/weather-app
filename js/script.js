@@ -199,10 +199,12 @@ var weather = function() {
                             for(var b = 1; b < forecast10day.length-3; b++) {
                                 var tempsC = forecast10day[b].high.celsius;
                                 var tempsF = forecast10day[b].high.fahrenheit;
-                                if( temps[h].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                                    temps[h].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                                    temps[h].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                                for(var a = 0; a < temps.length; a++) {
+                                    if( temps[a].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                        temps[a].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                                    } else if( temps[a].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                        temps[a].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                                    }
                                 }
                             }
 
