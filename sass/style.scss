@@ -8,7 +8,7 @@
 @include mainstyle;
 
 main {
-    width: 100%;
+    width: 1000px;
     height: 565px;
     margin: 40px;
     border: $zero;
@@ -21,7 +21,6 @@ main {
         height: 70%;
         padding: 20px 20px $zero;
         text-transform: uppercase;
-        // background-image: url("../img/cloudy.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -151,7 +150,6 @@ main {
 
         /* blur background */
         .blur {
-            // background-image: url("../img/cloudy.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -160,10 +158,9 @@ main {
             height: 100%;
             z-index: -1;
             /* blur filters */
-            -webkit-filter: blur(10px); //20px
+            -webkit-filter: blur(10px);
             -o-filter: blur(10px);
             filter: blur(10px);
-            // opacity: 0.9;
         }
     }
 }
@@ -175,7 +172,7 @@ main {
     display: inline-block;
     width: 12em;
     height: 10em;
-    font-size: 10px; /* control icon size here */ //1em
+    font-size: 10px; /* control icon size here */
 }
 
 .cloud {
@@ -186,7 +183,6 @@ main {
     width: 3.6875em;
     height: 3.6875em;
     margin: -1.84375em;
-    //   background: currentColor;
     background: $white;
     border-radius: 50%;
     box-shadow:
@@ -204,7 +200,6 @@ main {
     display: block;
     width: 4.5625em;
     height: 1em;
-    //   background: currentColor;
     box-shadow: 0 0.4375em 0 -0.0625em #fff;
 }
 .cloud:nth-child(2) {
@@ -229,10 +224,9 @@ main {
     width: 2.5em;
     height: 2.5em;
     margin: -1.25em;
-    //   background: currentColor;
     background: #F6C667;
     border-radius: 50%;
-    box-shadow: 0 0 0 0.375em #F6C667; //#fff
+    box-shadow: 0 0 0 0.375em #F6C667;
     animation: spin 12s infinite linear;
 }
 .rays {
@@ -243,9 +237,9 @@ main {
     width: 0.375em;
     height: 1.125em;
     margin-left: -0.1875em;
-    background: #F6C667; //#fff
+    background: #F6C667;
     border-radius: 0.25em;
-    box-shadow: 0 5.375em #F6C667; //#fff
+    box-shadow: 0 5.375em #F6C667;
 }
 .rays:before,
 .rays:after {
@@ -260,7 +254,7 @@ main {
     transform-origin: 50% 3.25em;
     background: #F6C667; //#fff
     border-radius: 0.25em;
-    box-shadow: 0 5.375em #F6C667; //#fff
+    box-shadow: 0 5.375em #F6C667;
 }
 .rays:before {
     transform: rotate(120deg);
@@ -279,7 +273,6 @@ main {
     width: 3.75em;
     height: 3.75em;
     margin: 0.375em 0 0 -2em;
-    //   background: currentColor;
 }
 
 .rain:after {
@@ -411,8 +404,8 @@ main {
 	width: 4px;
 	opacity: 1;
 	position: absolute;
-    left: 80px; //90px
-    top: 132px; //155px
+    left: 80px;
+    top: 132px;
 }
 .moon:before{
 	-webkit-animation: moon 9s ease-in-out infinite;
@@ -422,7 +415,7 @@ main {
 	height: 70px;
 	width: 70px;
 	position: absolute;
-	top: -115px; //-106px
+	top: -115px;
 	-webkit-transform: rotate(-5deg);
 	-webkit-transform-origin: 0 50%;
 }
@@ -434,7 +427,7 @@ main {
 	height: 70px;
 	width: 70px;
 	position: absolute;
-	top: -115px; //-106px
+	top: -115px;
 	left:-30px;
 	-webkit-transform: rotate(-5deg);
 	-webkit-transform-origin: 30px 50%;
