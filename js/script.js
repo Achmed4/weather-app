@@ -174,19 +174,6 @@ var weather = function() {
                                 iconEl.innerHTML = ourIcon;
                             }
                         }
-                        // var headerEl = document.querySelector('main header');
-                        // var blurEl = document.querySelector('.blur');
-                        // headerEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
-                        // blurEl.style.backgroundImage = 'url(https://achmed4.github.io/weather-app/img/' + xhrIcon + '.jpg)';
-                        //
-                        // var ourIcons = document.getElementById('weather-icons').children;
-                        // for(var i = 0; i < ourIcons.length; i++) {
-                        //     if( ourIcons[i].getAttribute('id') === xhrIcon ) {
-                        //         var ourIcon = ourIcons[i].innerHTML;
-                        //         var iconEl = document.getElementById('current-icon');
-                        //         iconEl.innerHTML = ourIcon;
-                        //     }
-                        // }
 
                         //Updating forecast for the rest of the week
                         var forecast10day = response.forecast.simpleforecast.forecastday;
@@ -194,8 +181,6 @@ var weather = function() {
                         var update = '';
                         var tempsC;
                         var tempsF;
-                        var temps;
-                        var toggleTemps;
                         for(var j = 1; j < forecast10day.length-3; j++) {
                             tempsC = forecast10day[j].high.celsius;
                             tempsF = forecast10day[j].high.fahrenheit;
@@ -204,39 +189,27 @@ var weather = function() {
                             update += '<img src="' + forecast10day[j].icon_url + '" />';
                             update += '<span>' + tempsC + '<sup>&#x2218;</sup>C</span>';
                             update += '</li>';
-                            //Toggle temps between C & F
-                            temps = document.querySelectorAll('#rest-of-theweek span');
-                            toggleTemps = function() {
-
-                                if( temps[h].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                                    temps[h].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                } else if( temps[h].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                                    temps[h].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                                }
-
-                            };
-                            for(var h = 0; h < temps.length; h++) {
-                                temps[h].addEventListener("click", toggleTemps);
-                            }
                         }
                         ul.innerHTML = update;
 
                         //Toggle temps between C & F
-                        // temps = document.querySelectorAll('#rest-of-theweek span');
-                        // toggleTemps = function() {
-                        //
-                        //     for(var b = 0; b < temps.length; b++) {
-                        //         if( temps[b].innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                        //             temps[b].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                        //         } else if( temps[b].innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
-                        //             temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                        //         }
-                        //     }
-                        //
-                        // };
-                        // for(var h = 0; h < temps.length; h++) {
-                        //     temps[h].addEventListener("click", toggleTemps);
-                        // }
+                        var temps = document.querySelectorAll('#rest-of-theweek span');
+                        var toggleTemps = function() {
+
+                            for(var b = 1; b < forecast10day.length-3; b++) {
+                                var tempsC = forecast10day[b].high.celsius;
+                                var tempsF = forecast10day[b].high.fahrenheit;
+                                if( this.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                    this.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                                } else if( this.innerHTML == (tempsF + '<sup>&#x2218;</sup>F') ) {
+                                    this.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                                }
+                            }
+
+                        };
+                        for(var h = 0; h < temps.length; h++) {
+                            temps[h].addEventListener("click", toggleTemps);
+                        }
 
                     }
                 };
