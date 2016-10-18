@@ -194,53 +194,23 @@ var weather = function() {
 
                         //Toggle temps between C & F
                         var temps = document.querySelectorAll('#rest-of-theweek span');
+                        var toggle = true;
                         var toggleTemps = function(e) {
-                            var tempsC, tempsF;
-                            if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                            if( toggle === true ) {
                                 for(var g = 1; g < forecast10day.length-3; g++) {
-                                    tempsC = forecast10day[g].high.celsius;
-                                    tempsF = forecast10day[g].high.fahrenheit;
-                                    temps[g-1].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                                    var tempsC1 = forecast10day[g].high.celsius;
+                                    var tempsF1 = forecast10day[g].high.fahrenheit;
+                                    temps[g-1].innerHTML = tempsF1 + '<sup>&#x2218;</sup>F';
                                 }
+                                toggle = false;
                             } else {
                                 for(var c = 1; c < forecast10day.length-3; c++) {
-                                    tempsC = forecast10day[c].high.celsius;
-                                    tempsF = forecast10day[c].high.fahrenheit;
-                                    temps[c-1].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                                    var tempsC2 = forecast10day[c].high.celsius;
+                                    var temps2 = forecast10day[c].high.fahrenheit;
+                                    temps[c-1].innerHTML = tempsC2 + '<sup>&#x2218;</sup>C';
                                 }
+                                toggle = true;
                             }
-
-                            // for(var g = 1; g < forecast10day.length-3; g++) {
-                            //     var tempsC = forecast10day[g].high.celsius;
-                            //     var tempsF = forecast10day[g].high.fahrenheit;
-                            //     if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                            //         temps[g-1].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                            //         continue;
-                            //     } else {
-                            //         temps[g-1].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                            //         continue;
-                            //     }
-                            // }
-
-                            // for(var g = 1; g < forecast10day.length-3; g++) {
-                            //     var tempsC = forecast10day[g].high.celsius;
-                            //     var tempsF = forecast10day[g].high.fahrenheit;
-                            //     if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                            //         e.target.innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                            //     } else {
-                            //         e.target.innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                            //     }
-                            // }
-
-                            // if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
-                            //     for(var a = 0; a < temps.length; a++) {
-                            //         temps[a].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                            //     }
-                            // } else {
-                            //     for(var b = 0; b < temps.length; b++) {
-                            //         temps[b].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                            //     }
-                            // }
 
                         };
                         for(var h = 0; h < temps.length; h++) {
