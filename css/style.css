@@ -27,6 +27,12 @@ main {
   border-radius: 10px;
   box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
   color: white; }
+  @media (max-width: 767px) {
+    main {
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none; } }
   main header {
     width: 100%;
     height: 70%;
@@ -51,6 +57,14 @@ main {
           font-size: 2.7em; }
         main header section div p {
           margin-bottom: 5px; }
+        @media (max-width: 767px) {
+          main header section div {
+            text-align: center; } }
+      @media (max-width: 767px) {
+        main header section {
+          display: block;
+          height: 45%;
+          text-align: center; } }
     main header nav {
       height: 15%;
       display: flex;
@@ -73,6 +87,17 @@ main {
           margin: 0 5px; }
           main header nav ul li a:hover {
             color: white; }
+        @media (max-width: 767px) {
+          main header nav ul li {
+            display: block; } }
+      @media (max-width: 767px) {
+        main header nav {
+          height: 55%;
+          align-items: flex-start; } }
+    @media (max-width: 767px) {
+      main header {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0; } }
   main article {
     position: relative;
     width: 100%;
@@ -93,13 +118,19 @@ main {
         display: flex;
         justify-content: center;
         align-items: center; }
-        main article section div td {
+        main article section div table td {
           padding-bottom: 5px;
           font-size: 1.4em; }
-          main article section div td:nth-child(3) {
+          main article section div table td:nth-child(3) {
             cursor: pointer; }
+        @media (max-width: 767px) {
+          main article section div table {
+            margin: auto; } }
         main article section div p {
           margin: 0; }
+        @media (max-width: 767px) {
+          main article section div {
+            display: block; } }
       main article section time {
         display: inline-block;
         background: rgba(51, 51, 51, 0.41);
@@ -109,6 +140,12 @@ main {
         text-transform: uppercase;
         font-size: 0.95em;
         margin-top: 15px; }
+        @media (max-width: 767px) {
+          main article section time {
+            margin-top: 55px; } }
+      @media (max-width: 767px) {
+        main article section {
+          width: 100%; } }
     main article ul {
       height: 100%;
       width: 65%;
@@ -138,7 +175,17 @@ main {
           font-size: 25px; }
         main article ul li span {
           display: block;
-          font-weight: bold; }
+          font-weight: bold;
+          cursor: pointer; }
+        @media (max-width: 767px) {
+          main article ul li {
+            display: block;
+            width: 100%;
+            border-left: 0; } }
+      @media (max-width: 767px) {
+        main article ul {
+          display: block;
+          width: 100%; } }
     main article .blur {
       background-position: center;
       background-repeat: no-repeat;
@@ -151,6 +198,12 @@ main {
       -webkit-filter: blur(10px);
       -o-filter: blur(10px);
       filter: blur(10px); }
+    @media (max-width: 767px) {
+      main article {
+        height: initial;
+        display: block; } }
+  main dl {
+    color: black; }
 
 /* === Animated Weather Icons === */
 .icon {

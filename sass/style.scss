@@ -15,6 +15,23 @@ main {
     border-radius: $ten;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
     color: $white;
+    @media (max-width: 767px) {
+        & {
+            width: 100%;
+            margin: $zero;
+            border-radius: $zero;
+            box-shadow: none;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+
+    }
+    @media (min-width: 1200px) {
+
+    }
 
     header {
         width: 100%;
@@ -40,6 +57,18 @@ main {
                 }
                 p {
                     margin-bottom: 5px;
+                }
+                @media (max-width: 767px) {
+                    & {
+                        text-align: center;
+                    }
+                }
+            }
+            @media (max-width: 767px) {
+                & {
+                    display: block;
+                    height: 45%;
+                    text-align: center;
                 }
             }
         }
@@ -70,7 +99,24 @@ main {
                             color: $white;
                         }
                     }
+                    @media (max-width: 767px) {
+                        & {
+                            display: block;
+                        }
+                    }
                 }
+            }
+            @media (max-width: 767px) {
+                & {
+                    height: 55%;
+                    align-items: flex-start;
+                }
+            }
+        }
+        @media (max-width: 767px) {
+            & {
+                border-top-right-radius: $zero;
+                border-top-left-radius: $zero;
             }
         }
     }
@@ -91,15 +137,27 @@ main {
             div {
                 height: 50%;
                 @include flexbox;
-                td {
-                    padding-bottom: 5px;
-                    font-size: 1.4em;
-                    &:nth-child(3) {
-                        cursor: pointer;
+                table {
+                    td {
+                        padding-bottom: 5px;
+                        font-size: 1.4em;
+                        &:nth-child(3) {
+                            cursor: pointer;
+                        }
+                    }
+                    @media (max-width: 767px) {
+                        & {
+                            margin: auto;
+                        }
                     }
                 }
                 p {
                     margin: $zero;
+                }
+                @media (max-width: 767px) {
+                    & {
+                        display: block;
+                    }
                 }
             }
             time {
@@ -111,6 +169,16 @@ main {
                 text-transform: uppercase;
                 font-size: 0.95em;
                 margin-top: 15px;
+                @media (max-width: 767px) {
+                    & {
+                        margin-top: 55px;
+                    }
+                }
+            }
+            @media (max-width: 767px) {
+                & {
+                    width: 100%;
+                }
             }
         }
 
@@ -144,6 +212,20 @@ main {
                 span {
                     display: block;
                     font-weight: bold;
+                    cursor: pointer;
+                }
+                @media (max-width: 767px) {
+                    & {
+                        display: block;
+                        width: 100%;
+                        border-left: $zero;
+                    }
+                }
+            }
+            @media (max-width: 767px) {
+                & {
+                    display: block;
+                    width: 100%;
                 }
             }
         }
@@ -162,6 +244,15 @@ main {
             -o-filter: blur(10px);
             filter: blur(10px);
         }
+        @media (max-width: 767px) {
+            & {
+                height: initial;
+                display: block;
+            }
+        }
+    }
+    dl {
+        color: $black;
     }
 }
 
