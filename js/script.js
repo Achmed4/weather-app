@@ -195,19 +195,32 @@ var weather = function() {
                         //Toggle temps between C & F
                         var temps = document.querySelectorAll('#rest-of-theweek span');
                         var toggleTemps = function(e) {
-
-                            for(var g = 1; g < forecast10day.length-3; g++) {
-                                var tempsC = forecast10day[g].high.celsius;
-                                var tempsF = forecast10day[g].high.fahrenheit;
-                                // temps[g-1].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                            var tempsC, tempsF;
+                            if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                                for(var g = 1; g < forecast10day.length-3; g++) {
+                                    tempsC = forecast10day[g].high.celsius;
+                                    tempsF = forecast10day[g].high.fahrenheit;
                                     temps[g-1].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
-                                    continue;
-                                } else {
-                                    temps[g-1].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
-                                    continue;
+                                }
+                            } else {
+                                for(var c = 1; c < forecast10day.length-3; c++) {
+                                    tempsC = forecast10day[c].high.celsius;
+                                    tempsF = forecast10day[c].high.fahrenheit;
+                                    temps[c-1].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
                                 }
                             }
+
+                            // for(var g = 1; g < forecast10day.length-3; g++) {
+                            //     var tempsC = forecast10day[g].high.celsius;
+                            //     var tempsF = forecast10day[g].high.fahrenheit;
+                            //     if( e.target.innerHTML == (tempsC + '<sup>&#x2218;</sup>C') ) {
+                            //         temps[g-1].innerHTML = tempsF + '<sup>&#x2218;</sup>F';
+                            //         continue;
+                            //     } else {
+                            //         temps[g-1].innerHTML = tempsC + '<sup>&#x2218;</sup>C';
+                            //         continue;
+                            //     }
+                            // }
 
                             // for(var g = 1; g < forecast10day.length-3; g++) {
                             //     var tempsC = forecast10day[g].high.celsius;
